@@ -1,0 +1,20 @@
+{
+  "name": "attestlock-scripts",
+  "private": true,
+  "type": "module",
+  "description": "Scripts Node.js (deploiement + integration @gluwa/usc-sdk) pour AttestLock / Node.js scripts (deployment + @gluwa/usc-sdk integration) for AttestLock",
+  "scripts": {
+    "deploy:creditcoin": "node deploy/deployCreditcoinContracts.js",
+    "deploy:sepolia": "node deploy/deploySourceMilestone.js",
+    "deploy:link": "node deploy/registerSourceContract.js",
+    "flow:create-escrow": "node testFlow/createAndFundEscrow.js",
+    "flow:confirm-milestone": "node testFlow/confirmMilestoneOnSepolia.js",
+    "flow:inspect": "node testFlow/inspectEscrow.js",
+    "proof:submit": "node proof/generateAndSubmitProof.js"
+  },
+  "dependencies": {
+    "@gluwa/usc-sdk": "0.18.0",
+    "dotenv": "17.4.2",
+    "ethers": "6.17.0"
+  }
+}

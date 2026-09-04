@@ -1,0 +1,9 @@
+{
+  "name": "attestlock-contracts",
+  "private": true,
+  "description": "Contrats Solidity AttestLock (escrow + verification cross-chain Attestcoin) / AttestLock Solidity contracts (escrow + Attestcoin cross-chain verification)",
+  "dependencies": {
+    "@openzeppelin/contracts": "5.4.0",
+    "@gluwa/asc-contracts": "0.2.1"
+  }
+}

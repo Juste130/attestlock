@@ -1,0 +1,11 @@
+# Foundry build artifacts / artefacts de compilation Foundry
+out/
+cache/
+broadcast/*/31337/
+broadcast/*/dry-run/
+
+# Dependencies installed via npm / dependances installees via npm
+node_modules/
+
+# Secrets locaux / local secrets
+.env

@@ -1,0 +1,76 @@
+/*
+ * FR : Jetons de design AttestLock -- charte graphique stricte : aplats de couleur uniquement,
+ *      aucun degrade, aucun blanc pur (#FAF9F6 comme fond de page). Toute couleur utilisee dans
+ *      l'app DOIT venir d'ici : ca garantit qu'on ne derive jamais de la charte par accident.
+ * EN : AttestLock design tokens -- strict brand guide: flat colors only, no gradients, no pure
+ *      white (#FAF9F6 as the page background). Every color used in the app MUST come from
+ *      here: this guarantees we never accidentally drift from the brand guide.
+ */
+:root {
+  /* Couleurs de marque / Brand colors */
+  --color-ink: #101826; /* Encre -- texte principal, titres */
+  --color-marine: #1e3a5f; /* Marine -- marque, boutons primaires, header */
+  --color-brass: #c08829; /* Laiton -- reserve a "attestation validee" / "en attente" */
+  --color-slate: #6b7785; /* Ardoise -- texte secondaire */
+  --color-mist: #e4e7eb; /* Brume -- bordures, separateurs, fonds de carte */
+  --color-paper: #faf9f6; /* Papier -- fond de page, jamais #ffffff */
+
+  /* Couleurs d'etat / State colors */
+  --color-success: #3f7a5c; /* depot confirme / fonds debloques */
+  --color-pending: #c08829; /* preuve en cours de verification -- identique a Laiton par design */
+  --color-error: #b24c43; /* preuve invalide / echec */
+
+  /* Grille d'espacement, multiples de 8px / Spacing grid, multiples of 8px */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-8: 64px;
+
+  /* Typographie : une seule famille, deux graisses / Typography: one family, two weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+  /* Rayons et bordures fines, pas d'ombres decoratives / Thin radii and borders, no decorative shadows */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --border-width: 1px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+/* FR : Focus clavier toujours visible -- jamais de outline:none sans remplacement.
+   EN : Keyboard focus always visible -- never outline:none without a replacement. */
+:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}

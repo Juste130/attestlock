@@ -1,0 +1,41 @@
+.button {
+  background: var(--color-brass);
+  color: var(--color-ink);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-3);
+  font-weight: var(--font-weight-medium);
+  font-size: 0.9375rem;
+}
+
+.button:hover {
+  background: #a8751f; /* Laiton assombri de ~15% -- aplat, pas de degrade / Brass darkened ~15% -- flat, no gradient */
+}
+
+.button:disabled {
+  background: var(--color-mist);
+  color: var(--color-slate);
+  cursor: default;
+}
+
+.connected {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--color-paper);
+  font-size: 0.875rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-success);
+  display: inline-block;
+}
+
+.error {
+  color: var(--color-error);
+  font-size: 0.8125rem;
+  margin-top: var(--space-1);
+}

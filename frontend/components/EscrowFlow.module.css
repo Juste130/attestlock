@@ -1,0 +1,176 @@
+.wrapper {
+  max-width: 480px;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+
+.escrowLabel {
+  color: var(--color-slate);
+  font-size: 0.8125rem;
+}
+
+.resetLink {
+  background: none;
+  border: none;
+  color: var(--color-marine);
+  font-size: 0.8125rem;
+  text-decoration: underline;
+  padding: 0;
+}
+
+/* FR : Transition douce (fade + leger glissement) rejouee a chaque changement d'etape --
+   React remonte le noeud car il est garde par `key={phase}` dans EscrowFlow.jsx, ce qui
+   redemarre naturellement l'animation CSS.
+   EN : Smooth transition (fade + slight slide) replayed on every step change -- React remounts
+   the node because it's keyed by `key={phase}` in EscrowFlow.jsx, which naturally restarts the
+   CSS animation. */
+.stepCard {
+  border: var(--border-width) solid var(--color-mist);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  background: var(--color-paper);
+  animation: fadeSlideIn 280ms ease-out;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stepCard {
+    animation: none;
+  }
+}
+
+.stepCard[data-accent="pending"] {
+  border-left: 3px solid var(--color-brass);
+}
+
+.stepCard[data-accent="success"] {
+  border-left: 3px solid var(--color-success);
+}
+
+.stepCard[data-accent="error"] {
+  border-left: 3px solid var(--color-error);
+}
+
+.stepCard[data-accent="neutral"] {
+  border-left: 3px solid var(--color-slate);
+}
+
+.stepTitle {
+  font-weight: var(--font-weight-medium);
+  font-size: 1.0625rem;
+  margin-bottom: var(--space-1);
+}
+
+.stepBody {
+  color: var(--color-slate);
+  font-size: 0.9375rem;
+  margin-bottom: var(--space-3);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  padding: var(--space-1) 0;
+  border-bottom: var(--border-width) solid var(--color-mist);
+}
+
+.row:last-of-type {
+  border-bottom: none;
+}
+
+.rowLabel {
+  color: var(--color-slate);
+}
+
+.rowValue {
+  color: var(--color-ink);
+  font-weight: var(--font-weight-medium);
+}
+
+.actionButton {
+  width: 100%;
+  background: var(--color-marine);
+  color: var(--color-paper);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  font-weight: var(--font-weight-medium);
+  font-size: 0.9375rem;
+  margin-top: var(--space-3);
+}
+
+.actionButton:disabled {
+  background: var(--color-mist);
+  color: var(--color-slate);
+  cursor: default;
+}
+
+.error {
+  color: var(--color-error);
+  font-size: 0.8125rem;
+  margin-top: var(--space-2);
+}
+
+/* FR : Indicateur de progression discret pour l'etape "preuve en cours" -- une barre
+   indeterminee en Laiton, pas d'animation tape-a-l'oeil.
+   EN : Discreet progress indicator for the "proof in progress" step -- an indeterminate bar in
+   Brass, no flashy animation. */
+.progressTrack {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--color-mist);
+  overflow: hidden;
+  margin-top: var(--space-1);
+}
+
+.progressFill {
+  height: 100%;
+  width: 40%;
+  background: var(--color-brass);
+  border-radius: 2px;
+  animation: indeterminate 1.4s ease-in-out infinite;
+}
+
+@keyframes indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(250%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progressFill {
+    animation: none;
+    width: 100%;
+  }
+}
+
+.pendingText {
+  color: var(--color-brass);
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-medium);
+  margin-top: var(--space-2);
+}
+
+.successText {
+  color: var(--color-success);
+  font-weight: var(--font-weight-medium);
+}

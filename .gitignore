@@ -1,0 +1,21 @@
+# Secrets / secrets
+.env
+.env.local
+.env*.local
+
+# Dependances / dependencies
+node_modules/
+
+# Artefacts de compilation Foundry / Foundry build artifacts
+contracts/out/
+contracts/cache/
+contracts/broadcast/*/31337/
+contracts/broadcast/*/dry-run/
+
+# Next.js
+frontend/.next/
+frontend/out/
+
+# OS / editeurs
+.DS_Store
+*.log
